@@ -8,7 +8,7 @@ const foodsSchema = new mongoose.Schema(
             unique: true
         },
         ingredients: {
-            type: String,
+            type: Array,
             required: [true, "Ingredients go here"]
         },
         cuisine: {
@@ -20,7 +20,7 @@ const foodsSchema = new mongoose.Schema(
         },
         dishImage: {
             type: String,
-            required: [true]
+            //required: [true]
         },
         dishVideo: {
             type: String

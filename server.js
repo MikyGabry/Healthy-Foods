@@ -4,6 +4,14 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 const { Foods } = require('./models')
 const seededDataFood = require('./models/seedDataFood')
+const cors = require('cors')
+const morgan = require('morgan')
+const foodRouter = require('./controllers/food')
+
+app.use(cors());
+app.use(morgan('dev'))
+app.use(express.json())
+app.use('/food', foodRouter)
 
 
 app.get ('/', (req, res) => {

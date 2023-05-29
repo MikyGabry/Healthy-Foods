@@ -20,6 +20,15 @@ router.post('/', async (req, res, next) =>{
     }
 })
 
+router.get('/:id', async (req, res, next) => {
+    try{
+        res.json(await Foods.findById(req.params.id))
+    }catch(err) {
+        console.log(err)
+        next()
+    }
+})
+
 router.put('/:id', async (req, res, next) => {
     try{
         res.json(await Foods.findByIdAndUpdate(req.params.id, req.body))
